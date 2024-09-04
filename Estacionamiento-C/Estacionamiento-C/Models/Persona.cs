@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Estacionamiento_C.Models
 {
@@ -9,10 +10,8 @@ namespace Estacionamiento_C.Models
         public string Apellido { get; set; }
 
         public string Email { get; set; }
-
-        public Direccion Direccion { get; set; }
-
-        
+        //Propiedad Navegacional
+        public Direccion Direccion { get; set; }        
 
     }
 }

@@ -10,25 +10,19 @@
         <Point X="6.25" Y="4.5" />
       </Path>
     </InheritanceLine>
-    <AssociationLine Name="Telefonos" Type="Estacionamiento_C.Models.Telefono" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="5.875" Y="5.759" />
-        <Point X="5.875" Y="7.157" />
-        <Point X="7.75" Y="7.157" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAgAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAgAAAAA=</HashCode>
       <FileName>Models\Cliente.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="Telefonos" />
+      <Property Name="ClientesVehiculos" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Estacionamiento_C.Models.Direccion">
     <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAEAAABAAA=</HashCode>
+      <HashCode>AAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAEACABAAA=</HashCode>
       <FileName>Models\Direccion.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -54,28 +48,35 @@
   </Class>
   <Class Name="Estacionamiento_C.Models.Telefono">
     <Position X="7.75" Y="6.5" Width="1.5" />
-    <AssociationLine Name="Cliente" Type="Estacionamiento_C.Models.Cliente" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="7.75" Y="6.688" />
-        <Point X="6.688" Y="6.688" />
-        <Point X="6.688" Y="5.759" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAACAAAAAAAAQAAAAAAAAAAABAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAABCAAAAAAAAQAAAAAAAAAAABAAA=</HashCode>
       <FileName>Models\Telefono.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Cliente" />
       <Property Name="TipoTelefono" />
+      <Property Name="Cliente" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Estacionamiento_C.Models.Vehiculo">
-    <Position X="9.25" Y="2.5" Width="1.5" />
+    <Position X="11" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAA=</HashCode>
       <FileName>Models\Vehiculo.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ClientesVehiculos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Estacionamiento_C.Models.ClienteVehiculo">
+    <Position X="11" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAABCAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ClienteVehiculo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Cliente" />
+      <Property Name="Vehiculo" />
+    </ShowAsAssociation>
   </Class>
   <Enum Name="Estacionamiento_C.Models.TipoTelefono">
     <Position X="2.75" Y="7" Width="1.5" />

@@ -49,5 +49,13 @@ namespace Estacionamiento_C.Models
 
         [NotMapped]
         public int Edad { get; }
+
+        [NotMapped]
+        public string   NombreCompleto { 
+            get {
+                return $"{Nombre}, {Apellido}";
+            
+            }
+        }
     }
 }

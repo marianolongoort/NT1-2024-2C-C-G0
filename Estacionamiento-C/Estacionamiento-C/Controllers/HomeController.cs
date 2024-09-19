@@ -1,33 +1,47 @@
+using Estacionamiento_C.Data;
 using Estacionamiento_C.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using System.Linq;
 
 namespace Estacionamiento_C.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly EstacionamientoDb _midb;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(EstacionamientoDb midb)
         {
-            _logger = logger;
+            this._midb = midb;
         }
 
-        public IActionResult Index()
+        public ActionResult Index()
         {
+            var personas = _midb.Personas.ToList();
+
+            ViewResult resultado = View(personas);
+            return resultado;
+        }
+
+        public ActionResult Privacy(bool getnombre = false)
+        {
+            if (getnombre)
+            {
+                return View("GetNombre");
+            }
+            
             return View();
         }
 
-        public IActionResult Privacy()
+        public int Sumar(int numero1, int numero2)
         {
-            return View();
+            return numero1 + numero2;
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public ActionResult GetNombre(string parametro = "No definido")
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(model:parametro);
         }
     }
 }

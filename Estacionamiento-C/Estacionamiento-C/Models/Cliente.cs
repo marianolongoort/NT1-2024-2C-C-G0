@@ -4,10 +4,10 @@ namespace Estacionamiento_C.Models
 {
     public class Cliente : Persona
     {
-        public int NumeroContribuyente { get; set; } //CUIT CUIL
+        public long NumeroContribuyente { get; set; } //CUIT CUIL
 
 
-        public List<ClienteVehiculo> ClientesVehiculos { get; set; }
+        //public List<ClienteVehiculo> ClientesVehiculos { get; set; }
 
 
         //Prop Navegacional

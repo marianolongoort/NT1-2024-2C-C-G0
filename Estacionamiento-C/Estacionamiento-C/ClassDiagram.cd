@@ -2,21 +2,13 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Estacionamiento_C.Models.Cliente">
     <Position X="5.25" Y="4.5" Width="2" />
-    <InheritanceLine Type="Estacionamiento_C.Models.Persona" FixedToPoint="true">
-      <Path>
-        <Point X="4.5" Y="2.205" />
-        <Point X="4.5" Y="4.125" />
-        <Point X="6.25" Y="4.125" />
-        <Point X="6.25" Y="4.5" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAgAAAAA=</HashCode>
       <FileName>Models\Cliente.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
-      <Property Name="Telefonos" />
       <Property Name="ClientesVehiculos" />
+      <Property Name="Telefonos" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Estacionamiento_C.Models.Direccion">
@@ -39,7 +31,7 @@
   <Class Name="Estacionamiento_C.Models.Persona">
     <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAACAAAAAEACAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAECAAAAACAAAAEEACAAgABAAEAAAgACAAEAAAAAAAA=</HashCode>
       <FileName>Models\Persona.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -68,14 +60,14 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Estacionamiento_C.Models.ClienteVehiculo">
-    <Position X="11" Y="3.75" Width="1.5" />
+    <Position X="11.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAQAAAABCAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ClienteVehiculo.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Cliente" />
       <Property Name="Vehiculo" />
+      <Property Name="Cliente" />
     </ShowAsAssociation>
   </Class>
   <Enum Name="Estacionamiento_C.Models.TipoTelefono">

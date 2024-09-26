@@ -29,9 +29,9 @@ namespace Estacionamiento_C.Models
 
 
         //Propiedad Navegacional
-        public Direccion Direccion { get; set; }
+        public Direccion Direccion { get; set; } 
 
-
+        [Required]
         [Range(1000000,99999999,ErrorMessage = "El campo DNI debe estar entre 1000000 y 99999999")]
         public int Dni { get; set; }
 
@@ -57,5 +57,7 @@ namespace Estacionamiento_C.Models
             
             }
         }
+
+
     }
 }

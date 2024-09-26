@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Persona>
+
+<div>
+    <h1>Listado de Personas</h1>
+    @if (Model.Any())
+    {
+        <ul>
+            @foreach (Persona persona in Model)
+            {
+                <li>
+                    @persona.NombreCompleto, @persona.Email
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+    <p class="text-danger">
+        No hay personas en la base de datosssss
+    </p>
+    }
+
+
+</div>
+

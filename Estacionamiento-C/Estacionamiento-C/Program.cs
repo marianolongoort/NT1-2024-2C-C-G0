@@ -1,7 +1,10 @@
 using Estacionamiento_C.Data;
 using Estacionamiento_C.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -13,10 +16,15 @@ namespace Estacionamiento_C
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             builder.Services.AddDbContext<EstacionamientoDb>(
-                options => options.UseInMemoryDatabase("EstacionamientoDb")
-                );
+                 options => options.UseSqlServer(builder.Configuration.GetConnectionString("EstacionamientoCS"))
+                 );
+
+
+            //builder.Services.AddIdentity<Persona, Rol>().AddEntityFrameworkStores<EstacionamientoDb>();
+            
+
+
 
             builder.Services.AddControllersWithViews();
 

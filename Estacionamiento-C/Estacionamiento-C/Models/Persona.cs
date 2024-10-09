@@ -12,7 +12,7 @@ namespace Estacionamiento_C.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = _requiredMsg)]
-        [StringLength(200, MinimumLength = 5,ErrorMessage = "El campo {0} debe estar entre {2} y {1}")]
+        [StringLength(220, MinimumLength = 5,ErrorMessage = "El campo {0} debe estar entre {2} y {1}")]
         public string Nombre { get; set; }
 
         [Required(ErrorMessage = _requiredMsg)]

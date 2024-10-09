@@ -1,10 +1,13 @@
 ﻿using Estacionamiento_C.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.General;
 using System.Collections.Generic;
 
 namespace Estacionamiento_C.Data
 {
-    public class EstacionamientoDb : DbContext
+    public class EstacionamientoDb : DbContext// IdentityDbContext<IdentityUser<int>,IdentityRole<int>,int>
     {
         public EstacionamientoDb(DbContextOptions options) : base(options)
         {
@@ -34,7 +37,7 @@ namespace Estacionamiento_C.Data
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Telefono> Telefonos { get; set; }
         public DbSet<Direccion> Direcciones { get; set; }
-        public DbSet<Estacionamiento_C.Models.ClienteVehiculo> ClienteVehiculo { get; set; }
-        public DbSet<Estacionamiento_C.Models.Vehiculo> Vehiculo { get; set; }
+        public DbSet<ClienteVehiculo> ClientesVehiculos { get; set; }
+        public DbSet<Vehiculo> Vehiculos { get; set; }
     }
 }

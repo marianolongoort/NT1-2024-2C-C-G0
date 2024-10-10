@@ -17,7 +17,7 @@ namespace Estacionamiento_C.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Nombre = table.Column<string>(type: "nvarchar(220)", maxLength: 220, nullable: false),
                     Apellido = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Dni = table.Column<int>(type: "int", nullable: false),

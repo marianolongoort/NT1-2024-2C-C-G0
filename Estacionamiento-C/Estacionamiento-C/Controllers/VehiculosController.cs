@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Estacionamiento_C.Data;
 using Estacionamiento_C.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Estacionamiento_C.Controllers
 {
+    [Authorize]
     public class VehiculosController : Controller
     {
         private readonly EstacionamientoDb _context;
@@ -19,13 +21,12 @@ namespace Estacionamiento_C.Controllers
             _context = context;
         }
 
-        // GET: Vehiculos
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Vehiculos.ToListAsync());
         }
 
-        // GET: Vehiculos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,15 +44,11 @@ namespace Estacionamiento_C.Controllers
             return View(vehiculo);
         }
 
-        // GET: Vehiculos/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Vehiculos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Patente")] Vehiculo vehiculo)
@@ -65,7 +62,6 @@ namespace Estacionamiento_C.Controllers
             return View(vehiculo);
         }
 
-        // GET: Vehiculos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -81,9 +77,6 @@ namespace Estacionamiento_C.Controllers
             return View(vehiculo);
         }
 
-        // POST: Vehiculos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Patente")] Vehiculo vehiculo)
@@ -116,7 +109,7 @@ namespace Estacionamiento_C.Controllers
             return View(vehiculo);
         }
 
-        // GET: Vehiculos/Delete/5
+        [Authorize(Roles = "Administrador,Empleado")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -134,7 +127,8 @@ namespace Estacionamiento_C.Controllers
             return View(vehiculo);
         }
 
-        // POST: Vehiculos/Delete/5
+
+        [Authorize(Roles = "Administrador,Empleado")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

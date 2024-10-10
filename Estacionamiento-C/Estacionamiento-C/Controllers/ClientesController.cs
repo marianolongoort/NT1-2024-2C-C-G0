@@ -46,20 +46,9 @@ namespace Estacionamiento_C.Controllers
         // GET: Clientes/Create
         public IActionResult Create()
         {
-            Cliente cliente = new Cliente()
-            {
-                Nombre = "Pablo",
-                Apellido = "Marmol",
-                Dni = 22333444,
-                FechaNacimiento = new DateTime(1977, 08, 08),
-                Email = "pablo@ort.edu.ar",
-                Fecha = new DateOnly(1978, 09, 09),
-                Hora = new TimeOnly(22, 15),
-                NumeroContribuyente =20223334440,
-                
-            };
+            
 
-            return View(cliente);
+            return View();
         }
 
         // POST: Clientes/Create

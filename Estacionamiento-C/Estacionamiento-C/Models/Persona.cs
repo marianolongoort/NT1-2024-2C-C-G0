@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Estacionamiento_C.Models
 {
-    public class Persona
+    public class Persona : IdentityUser<int>
     {
         private const string _requiredMsg = "El campo {0} es requerido";
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         [Required(ErrorMessage = _requiredMsg)]
         [StringLength(220, MinimumLength = 5,ErrorMessage = "El campo {0} debe estar entre {2} y {1}")]
@@ -24,7 +25,11 @@ namespace Estacionamiento_C.Models
         [EmailAddress]
         [Required(ErrorMessage = _requiredMsg)]
         [Display(Name ="Correo")]
-        public string Email { get; set; }
+        public override string Email
+        {
+            get { return base.Email; }
+            set { base.Email = value; }
+        }
 
 
 
@@ -38,7 +43,7 @@ namespace Estacionamiento_C.Models
 
         [DataType(DataType.Password)]
         public string Password { get; set; }
-        
+
         [DataType(DataType.Date)]
         public DateOnly Fecha { get; set; }
 

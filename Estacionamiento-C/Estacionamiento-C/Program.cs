@@ -21,8 +21,17 @@ namespace Estacionamiento_C
                  );
 
 
-            //builder.Services.AddIdentity<Persona, Rol>().AddEntityFrameworkStores<EstacionamientoDb>();
-            
+            builder.Services.AddIdentity<Persona, Rol>().AddEntityFrameworkStores<EstacionamientoDb>();
+
+
+            builder.Services.PostConfigure<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme,
+                opciones =>
+                {
+                    opciones.LoginPath = "/Account/IniciarSesion";
+                    opciones.AccessDeniedPath = "/Account/AccesoDenegado";
+                    opciones.Cookie.Name = "EstacionamientoApp";
+                });
+
 
 
 

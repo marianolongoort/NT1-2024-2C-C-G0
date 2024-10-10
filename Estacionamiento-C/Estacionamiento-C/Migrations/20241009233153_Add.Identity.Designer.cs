@@ -4,6 +4,7 @@ using Estacionamiento_C.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Estacionamiento_C.Migrations
 {
     [DbContext(typeof(EstacionamientoDb))]
-    partial class EstacionamientoDbModelSnapshot : ModelSnapshot
+    [Migration("20241009233153_Add.Identity")]
+    partial class AddIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -134,7 +137,7 @@ namespace Estacionamiento_C.Migrations
                         .HasDatabaseName("RoleNameIndex")
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("AspNetRoles", (string)null);
 
                     b.HasDiscriminator().HasValue("IdentityRole<int>");
 
@@ -235,7 +238,7 @@ namespace Estacionamiento_C.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("Personas", (string)null);
+                    b.ToTable("AspNetUsers", (string)null);
 
                     b.HasDiscriminator().HasValue("IdentityUser<int>");
 
@@ -299,7 +302,7 @@ namespace Estacionamiento_C.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("PersonasRoles", (string)null);
+                    b.ToTable("AspNetUserRoles", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>

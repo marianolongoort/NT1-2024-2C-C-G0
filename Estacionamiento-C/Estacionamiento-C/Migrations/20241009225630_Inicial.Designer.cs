@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Estacionamiento_C.Migrations
 {
     [DbContext(typeof(EstacionamientoDb))]
-    [Migration("20241009223316_Inicial")]
+    [Migration("20241009225630_Inicial")]
     partial class Inicial
     {
         /// <inheritdoc />
@@ -101,8 +101,8 @@ namespace Estacionamiento_C.Migrations
 
                     b.Property<string>("Nombre")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasMaxLength(220)
+                        .HasColumnType("nvarchar(220)");
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
